@@ -19,7 +19,7 @@ sed -e 's|#?\s*metalink=|#metalink=|g' \
 dnf update -y
 
 # 安装常规工具
-dnf install bind-utils curl wget unzip -y
+dnf install bind-utils crontabs curl wget unzip -y
 
 # 配置 SSH
 dnf install openssh-server -y
@@ -40,7 +40,8 @@ echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> ~/.bash_profile
 echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> ~/.zshrc
 
 # 配置 Docker CLI
-wget https://download.docker.com/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo
+dnf install 'dnf-command(config-manager)' -y
+dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
 dnf install docker-ce-cli -y
 
 # 清理
