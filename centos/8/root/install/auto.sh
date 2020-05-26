@@ -32,7 +32,7 @@ uuidgen | passwd --stdin root
 
 # 安装 ohmyzsh
 dnf install git zsh util-linux-user diffutils -y
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
 chsh -s /usr/bin/zsh
 
 # 配置 linuxbrew

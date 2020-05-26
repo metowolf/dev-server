@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  system:
+    image: 'metowolf/dev-server:centos-8'
+    restart: 'always'
+    volumes:
+      - './volumes/data:/data:rw'
+      - './volumes/root/.ssh:/root/.ssh:rw'
+      - './volumes/root/.docker:/root/.docker'
+      - './volumes/root/.gitconfig:/root/.gitconfig'
+      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+      - '/var/run/docker.sock:/install/docker.sock'
+    ports:
+      - "10022:22"
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_ADMIN
+  
