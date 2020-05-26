@@ -10,8 +10,8 @@ sed -e 's|#?\s*mirrorlist=|#mirrorlist=|g' \
     /etc/yum.repos.d/CentOS-*.repo
 
 dnf install -y epel-release
-sed -e 's|#?\s*metalink=|#metalink=|g' \
-    -e 's|#?\s*baseurl\s*=\s*https?://[^\$]+\$releasever|baseurl=http://mirrors.cloud.tencent.com/epel/\$releasever|g' \
+sed -e 's|^metalink=|#metalink=|g' \
+    -e 's|^#baseurl=https\?://download.fedoraproject.org/pub/epel/|baseurl=http://mirrors.cloud.tencent.com/epel/|g' \
     -i.bak \
     /etc/yum.repos.d/epel*.repo
 
