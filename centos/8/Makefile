@@ -1,2 +1,2 @@
 docker:
-	docker build -t metowolf/dev-server:centos-8 . --squash
+	docker build -t docker.pkg.github.com/metowolf/dev-server/centos:8 . --squash

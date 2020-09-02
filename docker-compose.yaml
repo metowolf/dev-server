@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   system:
-    image: 'metowolf/dev-server:centos-8'
+    image: 'docker.pkg.github.com/metowolf/dev-server/centos:8'
     restart: 'always'
     volumes:
       - './volumes/data:/data:rw'
