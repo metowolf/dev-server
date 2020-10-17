@@ -35,12 +35,13 @@ RUN dnf install 'dnf-command(config-manager)' -y \
   && dnf install docker-ce-cli -y
 
 # 配置 node 环境
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash \
-  && echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"' >> /root/.zshrc \ 
-  && echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> /root/.zshrc \
-  && source /root/.zshrc \
-  && nvm install node \
+RUN curl -sL https://rpm.nodesource.com/setup_14.x | bash - \
+  && yum install -y nodejs \
   && npm i -g yarn
+
+# 配置 deno 环境
+RUN curl -fsSL https://deno.land/x/install/install.sh | sh \
+  && echo 'export PATH="$PATH:${HOME}/.deno/bin/"' >> /root/.zshrc
 
 # 清理
 RUN dnf clean all \
