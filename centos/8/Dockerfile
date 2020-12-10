@@ -1,10 +1,12 @@
-FROM centos:8.2.2004
+FROM centos:8.3.2011
 LABEL maintainer="metowolf <i@i-meto.com>"
 
 USER root
 WORKDIR /root
 
 COPY root /
+
+RUN set -e
 
 # 安装 epel 源
 RUN dnf install -y epel-release \
@@ -35,7 +37,7 @@ RUN dnf install 'dnf-command(config-manager)' -y \
   && dnf install docker-ce-cli -y
 
 # 配置 node 环境
-RUN curl -sL https://rpm.nodesource.com/setup_14.x | bash - \
+RUN curl -sL https://rpm.nodesource.com/setup_15.x | bash - \
   && yum install -y nodejs \
   && npm i -g yarn
 
