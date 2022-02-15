@@ -5,6 +5,26 @@
 ## 软件版本
 
 ```
+docker pull ghcr.io/metowolf/dev-server/almalinux:8
+```
+
+|sortware|version|
+|---|---|
+|system|AlmaLinux release 8.5 (Arctic Sphynx)|
+|curl|7.61.1 (x86_64-redhat-linux-gnu)|
+|docker-cli|20.10.12, build e91ed57|
+|go|1.17.7|
+|git|2.27.0|
+|deno|1.18.2|
+|node|17.5.0|
+|npm|8.4.1|
+|yarn|1.22.17 (npm)|
+|vim|8.0.1763|
+|wget|1.19.5|
+|zsh|5.5.1 (x86_64-redhat-linux-gnu)|
+
+
+```
 docker pull docker.pkg.github.com/metowolf/dev-server/centos:8
 ```
 
